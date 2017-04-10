@@ -284,7 +284,7 @@ abstract class AbstractParser
      */
     protected function openingBalance($text)
     {
-        if ($line = $this->getLine('60F', $text)) {
+        if ($line = $this->getLine('60M|60F', $text)) {
             return $this->balance($this->reader->createOpeningBalance(), $line);
         }
     }
@@ -297,7 +297,7 @@ abstract class AbstractParser
      */
     protected function closingBalance($text)
     {
-        if ($line = $this->getLine('62F', $text)) {
+        if ($line = $this->getLine('62M|62F', $text)) {
             return $this->balance($this->reader->createClosingBalance(), $line);
         }
     }
@@ -316,7 +316,7 @@ abstract class AbstractParser
 
         // Parse the amount
         $amount = (float) str_replace(',', '.', $match[4]);
-        if (in_array($match[3], array('D', 'DR'))) {
+        if (in_array($match[3], array('D', 'CR'))) {
             $amount *= -1;
         }
 
