@@ -25,7 +25,7 @@ Packagist home page, then define your dependency on shaikun/jejik-mt940 in your 
                 },
                 "autoload": {
                     "psr-0" : {
-                        Jejik\\MT940" : "lib"
+                        "Jejik\\MT940" : "lib"
                     }
                 }
             }
